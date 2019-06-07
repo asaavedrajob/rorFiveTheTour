@@ -1,0 +1,20 @@
+<div class="container">
+  <div class="row justify-content-center mb-3">
+    <div class="card mb-4">
+      <div class="card-body">
+        <%= simple_form_for :search, url: "/cocktails", method: "GET", html: { class: "form-inline" } do |f| %>
+          <%= f.input :name, input_html: { value: "" } %>   
+          <%= f.submit "Search", class: "btn btn-primary" %>
+        <% end %>
+
+        <hr/>
+
+        <h1>Cocktails</h1>
+        <% @cocktails.each do |cocktail| %>
+          <h3><%= cocktail.name %></h3>
+          <p><%= cocktail.preparation %></p>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
